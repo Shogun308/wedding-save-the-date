@@ -1,0 +1,416 @@
+/* Design Tokens & Theme Variables */
+:root {
+  --color-sage: #7A9A7A;
+  --color-sage-dark: #5A735A;
+  --color-sage-light: #D4E2D4;
+  --color-sage-pale: #F3F7F3;
+  --color-cream: #FAF9F6;
+  --color-gold: #C29D6E;
+  --color-gold-dark: #A47C5C;
+  --color-text-main: #2C352C;
+  --color-text-muted: #5F6E5F;
+  --color-white: #FFFFFF;
+  
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  
+  --shadow-sm: 0 4px 12px rgba(90, 115, 90, 0.04);
+  --shadow-md: 0 12px 28px rgba(90, 115, 90, 0.06);
+  --shadow-lg: 0 20px 48px rgba(44, 53, 44, 0.08);
+  
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: #E6EDE6;
+  background-image: linear-gradient(135deg, #E2ECE2 0%, #D4DFD4 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Page Layout */
+.save-the-date-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 20px;
+}
+
+/* The Card Wrapper */
+.card-wrapper {
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  min-height: 640px;
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+/* Left Panel: Photo */
+.photo-panel {
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.02);
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-wrapper:hover .couple-photo {
+  transform: scale(1.08);
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(90, 115, 90, 0.05) 0%, rgba(44, 53, 44, 0.2) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Right Panel: Content */
+.content-panel {
+  width: 50%;
+  padding: 50px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-white);
+  position: relative;
+}
+
+/* Monogram Header */
+.monogram-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.monogram {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-gold-dark);
+  border: 1.5px solid var(--color-gold-dark);
+  width: 68px;
+  height: 68px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-cream);
+  white-space: nowrap;
+}
+
+.subtitle-uppercase {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-sage-dark);
+  margin-right: -0.25em;
+}
+
+/* Main Details */
+.main-details {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.headline {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--color-text-main);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.date-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 12px 0;
+}
+
+.day-name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--color-gold-dark);
+}
+
+.date-text {
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--color-text-main);
+  margin-right: -0.15em;
+}
+
+/* Divider with Leaf */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin: 20px auto;
+  position: relative;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  height: 1px;
+  flex-grow: 1;
+  background-color: var(--color-sage-light);
+}
+
+.divider-leaf {
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  padding: 0 10px;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.venue-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-sage-dark);
+  margin-bottom: 6px;
+}
+
+.venue-address {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* Countdown Section */
+.countdown-section {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.countdown-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.countdown-item {
+  background-color: var(--color-sage-pale);
+  border: 1px solid rgba(122, 154, 122, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.countdown-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-sage-light);
+  box-shadow: var(--shadow-md);
+}
+
+.countdown-item .number {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-sage-dark);
+  line-height: 1.2;
+}
+
+.countdown-item .label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* Action Area */
+.action-footer {
+  text-align: center;
+}
+
+.rsvp-notice {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+/* Primary Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  transition: var(--transition-smooth);
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  background-color: var(--color-sage-dark);
+  color: var(--color-white);
+  box-shadow: 0 4px 10px rgba(90, 115, 90, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: #495e49;
+  box-shadow: 0 8px 20px rgba(90, 115, 90, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Global Footer */
+.global-footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  width: 100%;
+}
+
+/* Animations */
+.fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Queries */
+@media (max-width: 900px) {
+  .save-the-date-container {
+    padding: 20px 15px;
+  }
+  .card-wrapper {
+    flex-direction: column;
+    min-height: auto;
+    max-width: 480px;
+  }
+  .photo-panel, .content-panel {
+    width: 100%;
+  }
+  .photo-panel {
+    height: 360px;
+  }
+  .content-panel {
+    padding: 40px 30px;
+    gap: 30px;
+  }
+  .headline {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-panel {
+    height: 280px;
+  }
+  .content-panel {
+    padding: 30px 20px;
+  }
+  .headline {
+    font-size: 2.1rem;
+  }
+  .countdown-grid {
+    gap: 8px;
+  }
+  .countdown-item {
+    padding: 8px 2px;
+  }
+  .countdown-item .number {
+    font-size: 1.2rem;
+  }
+}
